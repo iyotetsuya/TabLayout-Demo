@@ -51,6 +51,7 @@ class EditTextFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        if (_binding == null) return
         outState.putString(SAVE_TEXT, binding.input.text.toString())
     }
 

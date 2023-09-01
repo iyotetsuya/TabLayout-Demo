@@ -2,7 +2,6 @@
     <string name="app_name">TabLayout Demo</string>
     <string name="edit_text_fragment_desc">Keep Fragment\nId: %1$s</string>
     <string name="next_fragment_desc" >Index: %1$d, Id: %2$s"</string>
-    <string name="child_container_fragment">ChildContainerFragment</string>
     <string name="edit_text_fragment_save_state">savedInstanceState: %1$s</string>
     <string name="tab_empty">Empty</string>
     <string name="tab_child">Child</string>
@@ -10,4 +9,5 @@
     <string name="next_fragment">Next Fragment</string>
     <string name="empty_fragment">EmptyFragment</string>
     <string name="keep_fragment">KeepFragment</string>
+    <string name="child_container_fragment">ChildContainerFragment</string>
 </resources>

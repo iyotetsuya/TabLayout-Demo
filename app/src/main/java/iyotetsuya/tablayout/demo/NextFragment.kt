@@ -1,5 +1,6 @@
 package iyotetsuya.tablayout.demo
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,17 +44,31 @@ class NextFragment : Fragment() {
             }
         }
 
+    override fun onResume() {
+        super.onResume()
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            onBackPressedCallback
+        )
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNextBinding.inflate(inflater, container, false)
-        requireActivity().onBackPressedDispatcher.addCallback(
-            this.viewLifecycleOwner,
-            onBackPressedCallback
-        )
         return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        onBackPressedCallback.isEnabled = true
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        onBackPressedCallback.isEnabled = false
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,7 +89,6 @@ class NextFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        onBackPressedCallback.remove()
     }
 
     private fun replaceFragment(fragment: Fragment) {

@@ -20,6 +20,14 @@ class KeepFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val desc =
+            getString(R.string.keep_fragment) + ": " + System.identityHashCode(this).toString()
+
+        binding.textKeepFragment.text = desc
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

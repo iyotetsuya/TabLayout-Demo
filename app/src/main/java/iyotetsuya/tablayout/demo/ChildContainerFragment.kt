@@ -20,6 +20,15 @@ class ChildContainerFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val desc =
+            getString(R.string.child_container_fragment) + ": " + System.identityHashCode(this)
+                .toString()
+
+        binding.textChildFragment.text = desc
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

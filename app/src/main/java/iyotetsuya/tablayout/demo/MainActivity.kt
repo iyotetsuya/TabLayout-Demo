@@ -54,15 +54,7 @@ class MainActivity : AppCompatActivity() {
                 popAllChildBackStack()
             }
         })
-        onBackPressedDispatcher.addCallback(
-            this@MainActivity,
-            onBackPressedCallback
-        )
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        onBackPressedCallback.remove()
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
