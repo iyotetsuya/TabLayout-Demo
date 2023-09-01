@@ -39,7 +39,13 @@ class EditTextFragment : Fragment() {
         binding.desc.text = desc
         if (savedInstanceState != null) {
             val saveText = savedInstanceState.getString(SAVE_TEXT)
-            binding.saveState.text = saveText
+            val saveState = String.format(
+                resources.getString(
+                    R.string.edit_text_fragment_save_state,
+                    saveText
+                )
+            )
+            binding.saveState.text = saveState
         }
     }
 
